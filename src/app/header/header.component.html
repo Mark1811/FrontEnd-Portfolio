@@ -1,0 +1,79 @@
+<header>
+    <img src="../../assets/imagenes/ARGENTINA-PROGRAMA.jpg" class="ico-ar"> 
+    <input type="checkbox" id="check">
+    <label for="check"><img src="../../assets/imagenes/border-width.svg" class="icon-menu"></label>
+    
+    <div class="menu">
+       <ul >
+        <li><a href="#">
+          <button class="respon">Login</button>
+        </a></li> 
+        <li><a href="#">
+         <img src="../../assets/imagenes/LinkedIn_logo_initials.png" class="icon-link">
+        </a></li>
+        <li><a href="https://www.facebook.com/">
+          <img src="../../assets/imagenes/facebook-770688_1280.png" class="icon-link">
+        </a></li>
+        <li><a href="#">
+          <img src="../../assets/imagenes/pngegg.png" class="icon-link">
+        </a></li>
+        
+       </ul>
+       <button class="btn-inicio">Login</button>
+    </div>
+     
+
+ 
+<!---------------------------TITULO--------------------->
+<div class="contenedor">
+  
+  <div class="contenedor-textos" *ngFor="let per of persona">
+    <h1>{{per.nombre+ " " + per.apellido}} 
+      <i class="fa-solid fa-pen" id="iconedit" (click)="habilitarPort=true"></i>
+    </h1>
+    <h2>{{per.area}}</h2>
+    
+  </div>
+
+  <div class="contenedor-img">
+  <img src="../../assets/imagenes/tec-human.svg">
+  </div>  
+
+</div><!-- cierro caja contenedor-->
+
+ 
+<!--VENTANA MODAL PORTADA-->
+  <section class="modal" *ngIf="habilitarPort">
+    <form class="form textoin animate__animated animate__fadeInDown animate__faster" >
+   
+      <h2 class="form_title">Portfolio</h2>
+
+       <div class="form_container">
+          <div class="formGrup">
+            <input type="text" id="name" class="form_input" placeholder=" ">
+            <label for="name" class="form_label">Nombre</label>
+            <span class="formLine"></span>
+          </div>
+
+          <div class="formGrup">
+           <input type="text" id="apellido" class="form_input" placeholder=" ">
+           <label for="apellido" class="form_label">Apellido</label>
+           <span class="formLine"></span>
+         </div>
+
+         <div class="formGrup">
+           <input type="text" id="area" class="form_input" placeholder=" ">
+           <label for="area" class="form_label">Area</label>
+           <span class="formLine"></span>
+         </div>
+
+          <input type="submit" class="form_submit" value="Guardar">
+       </div>
+    
+ </form>
+
+  </section>
+
+
+</header>
+
