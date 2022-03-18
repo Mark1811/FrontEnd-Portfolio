@@ -1,6 +1,6 @@
 section{
     width: 100%;
-    height: 650px;
+    height: 90%;
     position: relative;
     overflow: hidden;
     background: #fff;
@@ -56,20 +56,137 @@ section .contenedor{
     
 }
 
+/*------MODAL SOBRE MI--------*/
+.form{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 200px;
+    width: 100%;
+    max-width: 700px;
+    padding: 4em 3em;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+  }
+  .textSobremi{
+     display: flex;
+     max-width: 600px;
+     font-size: 1rem;
+     padding: 10px;
+     border-radius: 10px;
+     border: 2px solid #aaa;
+     outline: none;
+  }
+  .textSobremi:focus{
+      border-color: dodgerblue ;
+      box-shadow:  0 0 2px 0 dodgerblue;
+  }
+
+  .labelDescrip{
+    color:#110b0b9d;
+    position: absolute;
+    bottom: 480px;
+  }
+  .labelimg{
+    color:#110b0b9d;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    
+  }
+ 
+  
+  .form_title{
+       font-size: 2rem;
+       margin-bottom: .2em;
+
+  }
+  
+  .form_container{
+      margin-top: 3em;
+      display: grid;
+      gap: 2.5em;
+      
+  }
+  .formGrup{
+      display: flex;
+  
+  }
+
+  .form_submit{
+      background: rgb(63,94,251);
+      color: #fff;
+      font-weight: 300;
+      font-size: 1rem;
+      padding: .8em 0;
+      border: none;
+      border-radius: .5em;
+  }
+  .form_submit:hover{
+      background: coral;
+      transition: 200ms;
+      cursor: pointer;
+  }
+   .inputimg{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+   }
+   .divbtnimg{
+    position: relative;
+    background: rgb(63,94,251);
+    color: #fff;
+    padding: .8em 0 ;
+    border: none;
+    border-radius: .5em;
+   }
+   .divbtnimg:hover{
+    background: coral;
+    transition: 200ms;
+    cursor: pointer;
+   }
+   
+  .modal{
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color:#111111bd;
+    display: flex;
+}
+
+.iconSobremi{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#iconedit{
+    cursor: pointer; 
+    font-size: 6vh;
+    color: rgba(0, 0, 0, 0.623);
+}
+#iconedit:hover{
+    color: rgb(63,94,251);
+    transform: 200ms;
+}
+  
 @media screen and (max-width:900px) {
         section .contenedor{
-            flex-direction: column;
+           flex-direction: column;
            justify-content:space-evenly;
-            align-items: center;
-            
-            background-position: center;
-           
+           align-items: center;
+           background-position: center;   
         }
         .texto-sobremi{
              width: 95%;
              text-align: center; 
-              margin-top: -8px;
-             
+             margin-top: -8px;     
         }
         .contenedor-img-foto{
             width: 250px;

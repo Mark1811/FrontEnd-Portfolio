@@ -1,14 +1,37 @@
 <section>
     <h1 class="titulo">Sobre mi</h1>
-      <div class="contenedor"><!--abro contenedor sobre mi-->
-     
+      <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="habiliModalSobremi=true"></i></div>
+    
+      <div class="contenedor" *ngFor="let so of sobremi"><!--abro contenedor sobre mi-->
         <div class="contenedor-img-foto">
-             <img src="../../assets/imagenes/yop.png">
+          <img [src]=" myimage|async">
         </div>
-      <div class="texto-sobremi">
-         <p id="text_escrito">Si hay algo que me caracteriza es que me involucro al 100% en todo lo que hago, pongo toda la energía que me aporta trabajar de aquello que tanto me entusiasma. Sin duda, me siento muy afortunado de haber encontrado lo que me apasiona y de hacer de ello un labor.</p>
-      </div> 
-        
-      
+        <div class="texto-sobremi" >
+         <p id="text_escrito">{{so.descripcion}}</p>
+        </div> 
       </div><!--cierro contenedor sobre mi-->
+
+<!----------------------------------Modal de sobre mi-------------------------------->
+  <section class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="habiliModalSobremi" >
+    <form class="form">
+   
+      <h2 class="form_title">Portfolio</h2>
+
+       <div class="form_container">
+          <label class="labelDescrip">Descripcion:</label>
+          <textarea  class="textSobremi" rows="5" maxlength="270" ></textarea>
+          
+          
+          <div class="divbtnimg">
+            <label for="imagen" class="labelimg">imagen:</label>
+            <input type="file" (change)="capturarImg($event)"  class="inputimg"/>seleccion archivo: {{nameimg}}</div>
+          
+        <input type="submit" class="form_submit" value="Guardar">
+       </div>
+
+    </form>   
+   </section>
+
 </section>
+
+

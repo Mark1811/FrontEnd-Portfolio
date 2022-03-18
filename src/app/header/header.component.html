@@ -44,33 +44,33 @@
  
 <!--VENTANA MODAL PORTADA-->
   <section class="modal" *ngIf="habilitarPort">
-    <form class="form textoin animate__animated animate__fadeInDown animate__faster" >
+    <div class="form textoin animate__animated animate__fadeInDown animate__faster" >
    
       <h2 class="form_title">Portfolio</h2>
 
-       <div class="form_container">
+       <div class="form_container" *ngFor="let per of persona" >
           <div class="formGrup">
-            <input type="text" id="name" class="form_input" placeholder=" ">
-            <label for="name" class="form_label">Nombre</label>
+            <input type="text"  class="form_input" (ngModel)="nombre" />
+            <label class="form_label">Nombre</label>
             <span class="formLine"></span>
           </div>
 
           <div class="formGrup">
-           <input type="text" id="apellido" class="form_input" placeholder=" ">
+           <input type="text"  id="apellido" class="form_input" >
            <label for="apellido" class="form_label">Apellido</label>
            <span class="formLine"></span>
          </div>
 
          <div class="formGrup">
-           <input type="text" id="area" class="form_input" placeholder=" ">
+           <input type="text" id="area" class="form_input" [ngModel]="per.area" >
            <label for="area" class="form_label">Area</label>
            <span class="formLine"></span>
          </div>
 
-          <input type="submit" class="form_submit" value="Guardar">
+          <input type="submit" class="form_submit">
        </div>
     
- </form>
+      </div>
 
   </section>
 
