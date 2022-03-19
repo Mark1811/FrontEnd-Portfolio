@@ -50,24 +50,24 @@
 
        <div class="form_container" *ngFor="let per of persona" >
           <div class="formGrup">
-            <input type="text"  class="form_input" (ngModel)="nombre" />
+            <input type="text"  class="form_input" [(ngModel)]="nombre" />
             <label class="form_label">Nombre</label>
             <span class="formLine"></span>
           </div>
 
           <div class="formGrup">
-           <input type="text"  id="apellido" class="form_input" >
+           <input type="text"  id="apellido" class="form_input" [(ngModel)]="apellido">
            <label for="apellido" class="form_label">Apellido</label>
            <span class="formLine"></span>
          </div>
 
          <div class="formGrup">
-           <input type="text" id="area" class="form_input" [ngModel]="per.area" >
+           <input type="text" id="area" class="form_input" [(ngModel)]="area" >
            <label for="area" class="form_label">Area</label>
            <span class="formLine"></span>
          </div>
 
-          <input type="submit" class="form_submit">
+          <input type="submit" class="form_submit" value="Guardar" (click)="editPortada(per)">
        </div>
     
       </div>

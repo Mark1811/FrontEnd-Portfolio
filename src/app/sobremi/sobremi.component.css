@@ -62,30 +62,36 @@ section .contenedor{
     margin-bottom: 200px;
     width: 100%;
     max-width: 700px;
+    max-height: 550px;
     padding: 4em 3em;
     border-radius: 10px;
     text-align: center;
     margin: auto;
   }
   .textSobremi{
-     display: flex;
      max-width: 600px;
      font-size: 1rem;
      padding: 10px;
      border-radius: 10px;
-     border: 2px solid #aaa;
+     border: 2px solid rgba(134, 143, 156, 0.801);
      outline: none;
+     
   }
   .textSobremi:focus{
       border-color: dodgerblue ;
       box-shadow:  0 0 2px 0 dodgerblue;
+    
   }
 
   .labelDescrip{
     color:#110b0b9d;
-    position: absolute;
-    bottom: 480px;
+    display:flex;
+    height: 30px;
+    width: 100%;
+    justify-content:center;
+    bottom: 460px;
   }
+
   .labelimg{
     color:#110b0b9d;
     position: absolute;
@@ -94,7 +100,6 @@ section .contenedor{
     
   }
  
-  
   .form_title{
        font-size: 2rem;
        margin-bottom: .2em;

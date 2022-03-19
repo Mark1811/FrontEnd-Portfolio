@@ -10,7 +10,7 @@ import { PortadaService } from '../servicios/portada.service';
 export class HeaderComponent implements OnInit {
   
   persona:PortadaPersona[]=[];
-  habilitarPort:Boolean=true;
+  habilitarPort:Boolean=false;
   nombre:string=" ";
   apellido:string=" ";
   area:string="";
@@ -23,6 +23,15 @@ export class HeaderComponent implements OnInit {
       per=>this.persona=per
     );
   }
+  
+  editPortada(per:PortadaPersona){
+    per.nombre = this.nombre;
+    per.apellido= this.apellido;
+    per.area = this.area;
+    this.portadaservice.editarPersona(per).subscribe();
+    this.habilitarPort=false;
+  }
+
 
  
 

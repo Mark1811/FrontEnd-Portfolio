@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PortadaPersona } from '../model/portada-persona';
+
+const httpOptions ={
+  headers: new HttpHeaders({
+    'Content-Type':'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +25,8 @@ export class PortadaService {
    }
   
     editarPersona(per:PortadaPersona):Observable<PortadaPersona>{
-      const apiUrl =`${this.urlpost}/${per.id}`
-      return this.http.put<PortadaPersona>(apiUrl,per);
+    
+      return this.http.put<PortadaPersona>(this.urlpost,per,httpOptions);
     }
 
   

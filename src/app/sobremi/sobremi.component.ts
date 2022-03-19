@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
+import { Sobremi } from '../model/sobremi';
 import { SobreserviceService } from '../servicios/sobreservice.service';
 
 @Component({
@@ -9,30 +10,48 @@ import { SobreserviceService } from '../servicios/sobreservice.service';
 })
 export class SobremiComponent implements OnInit {
   sobremi:any;
+  per:Sobremi[]=[];
   myimage: Observable<any>;
   nameimg:any;
   habiliModalSobremi:boolean=true;
-  descrip:string="marcos";
-  constructor(private datosSobremi:SobreserviceService) { }
+  captSobremi:string="";
+  captImg:any;
+  constructor(private datosSobremiService:SobreserviceService) { }
  
   
   ngOnInit(): void {
     
-    this.datosSobremi.getSobremi().subscribe(data =>{
+    this.datosSobremiService.getSobremi().subscribe(data =>{
       console.log(data);
       this.sobremi= data; 
     })
   }
   
-  capturarImg(event:any){
-     const obtenerdato = event.target.files[0];
-     this.convertToBase64(obtenerdato);
-     this.nameimg= event.target.files[0].name;
+  convertirBs64(event:any){
+    const archiImg = event.target.files;
+    this.nameimg= event.target.files[0].name;
+    const reader = new FileReader();
+    reader.readAsDataURL(archiImg[0]);
+    reader.onloadend=()=>{
+        try{
+          this.captImg=reader.result;
+        }
+        catch{
+          console.log("Error Base64");
+        }  
+    } 
   }
    
 
+  editCapt(per:Sobremi){
+    per.descripcion=this.captSobremi;
+    per.foto=this.captImg;
+    this.datosSobremiService.editDescripcion(per).subscribe();
+    this.habiliModalSobremi=false;
+  }
 
-  /*METODO PARA PASAR LA IMAGEN A BASE64*/ 
+
+  /*METODO PARA PASAR LA IMAGEN A BASE64 
   convertToBase64(file: File) {
     this.myimage = new Observable((subscriber:Subscriber<any>) => {
       this.readFile(file, subscriber);
@@ -52,6 +71,7 @@ export class SobremiComponent implements OnInit {
       subscriber.complete();
     };
   }
+  */
 }
 
 

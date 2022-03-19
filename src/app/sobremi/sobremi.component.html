@@ -1,10 +1,10 @@
-<section>
+<section  *ngFor="let so of sobremi">
     <h1 class="titulo">Sobre mi</h1>
       <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="habiliModalSobremi=true"></i></div>
     
-      <div class="contenedor" *ngFor="let so of sobremi"><!--abro contenedor sobre mi-->
+      <div class="contenedor"><!--abro contenedor sobre mi-->
         <div class="contenedor-img-foto">
-          <img [src]=" myimage|async">
+          <img [src]=" so.foto">
         </div>
         <div class="texto-sobremi" >
          <p id="text_escrito">{{so.descripcion}}</p>
@@ -12,26 +12,24 @@
       </div><!--cierro contenedor sobre mi-->
 
 <!----------------------------------Modal de sobre mi-------------------------------->
-  <section class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="habiliModalSobremi" >
-    <form class="form">
+  <section class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="habiliModalSobremi"  >
+    <div class="form">
    
       <h2 class="form_title">Portfolio</h2>
-
+      
        <div class="form_container">
-          <label class="labelDescrip">Descripcion:</label>
-          <textarea  class="textSobremi" rows="5" maxlength="270" ></textarea>
-          
+          <textarea placeholder="Descripcion" class="textSobremi" rows="5" maxlength="270" [(ngModel)]="captSobremi" ></textarea>
           
           <div class="divbtnimg">
             <label for="imagen" class="labelimg">imagen:</label>
-            <input type="file" (change)="capturarImg($event)"  class="inputimg"/>seleccion archivo: {{nameimg}}</div>
+            <input type="file" (change)="convertirBs64($event)"  class="inputimg"/>seleccion archivo: {{nameimg}}
+          </div>
           
-        <input type="submit" class="form_submit" value="Guardar">
+        <input type="submit" class="form_submit" value="Guardar" (click)="editCapt(so)">
        </div>
 
-    </form>   
-   </section>
-
+    </div>   
+  </section>
 </section>
 
 
