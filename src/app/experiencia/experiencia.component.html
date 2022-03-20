@@ -1,0 +1,21 @@
+<h1 class="titulo">Experiencia</h1> 
+<button type="submit"  (click)="agregaExperi()">Crear</button> 
+
+<ul *ngFor="let expe of expeGrup">
+     <section class="expe">
+           <ul class="listas">
+            <div class="cajaimg"> 
+              <img src="../../assets/imagenes/oparador de pc.png" class="imgexpe">
+            </div>
+              <li>  
+                     <div class="cajali">
+                      <h2>{{expe.id}}</h2>
+                       <h2>{{expe.titluPuesto}}</h2> 
+                       <h3>{{expe.fechaInicio}}</h3>
+                       <p>{{expe.descripcionPuesto}}</p>
+                     </div>
+              </li>
+           </ul>
+     </section>  
+</ul>
+

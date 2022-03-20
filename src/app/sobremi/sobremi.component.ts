@@ -13,8 +13,8 @@ export class SobremiComponent implements OnInit {
   per:Sobremi[]=[];
   myimage: Observable<any>;
   nameimg:any;
-  habiliModalSobremi:boolean=true;
-  captSobremi:string="";
+  habiliModalSobremi:boolean=false;
+  captSobremi:string=" ";
   captImg:any;
   constructor(private datosSobremiService:SobreserviceService) { }
  
@@ -22,11 +22,11 @@ export class SobremiComponent implements OnInit {
   ngOnInit(): void {
     
     this.datosSobremiService.getSobremi().subscribe(data =>{
-      console.log(data);
       this.sobremi= data; 
     })
   }
-  
+
+  //Metodo para pasar las imagenes a Base64
   convertirBs64(event:any){
     const archiImg = event.target.files;
     this.nameimg= event.target.files[0].name;
@@ -42,7 +42,7 @@ export class SobremiComponent implements OnInit {
     } 
   }
    
-
+  /* Metodo para editar la foto y descripcion*/ 
   editCapt(per:Sobremi){
     per.descripcion=this.captSobremi;
     per.foto=this.captImg;
@@ -50,28 +50,12 @@ export class SobremiComponent implements OnInit {
     this.habiliModalSobremi=false;
   }
 
-
-  /*METODO PARA PASAR LA IMAGEN A BASE64 
-  convertToBase64(file: File) {
-    this.myimage = new Observable((subscriber:Subscriber<any>) => {
-      this.readFile(file, subscriber);
-    });
+  /*Metodo para abrir modal*/
+  abrirModal(per:Sobremi){
+        this.habiliModalSobremi=true;
+        this.captImg=per.foto;
+        this.captSobremi=per.descripcion;
   }
-
-  readFile(file: File, subscriber: Subscriber<any>) {
-    const filereader = new FileReader();
-    filereader.readAsDataURL(file);
-
-    filereader.onload = () => {
-      subscriber.next(filereader.result);
-      subscriber.complete();
-    };
-    filereader.onerror = (error) => {
-      subscriber.error(error);
-      subscriber.complete();
-    };
-  }
-  */
 }
 
 

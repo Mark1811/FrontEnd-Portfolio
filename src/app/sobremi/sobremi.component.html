@@ -1,14 +1,14 @@
 <section  *ngFor="let so of sobremi">
     <h1 class="titulo">Sobre mi</h1>
-      <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="habiliModalSobremi=true"></i></div>
-    
-      <div class="contenedor"><!--abro contenedor sobre mi-->
-        <div class="contenedor-img-foto">
-          <img [src]=" so.foto">
-        </div>
-        <div class="texto-sobremi" >
-         <p id="text_escrito">{{so.descripcion}}</p>
-        </div> 
+
+      <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="abrirModal(so)"></i></div>
+         <div class="contenedor"><!--abro contenedor sobre mi-->
+           <div class="contenedor-img-foto">
+             <img [src]=" so.foto">
+           </div>
+              <div class="texto-sobremi" >
+                <p id="text_escrito">{{so.descripcion}}</p>
+              </div> 
       </div><!--cierro contenedor sobre mi-->
 
 <!----------------------------------Modal de sobre mi-------------------------------->
@@ -16,18 +16,16 @@
     <div class="form">
    
       <h2 class="form_title">Portfolio</h2>
-      
-       <div class="form_container">
-          <textarea placeholder="Descripcion" class="textSobremi" rows="5" maxlength="270" [(ngModel)]="captSobremi" ></textarea>
-          
+        <label class="labelDescrip">Descripción:</label>
+          <textarea  class="textSobremi" rows="8"  maxlength="300" [(ngModel)]="captSobremi"> </textarea>
+        
+      <div class="form_container">  
           <div class="divbtnimg">
             <label for="imagen" class="labelimg">imagen:</label>
             <input type="file" (change)="convertirBs64($event)"  class="inputimg"/>seleccion archivo: {{nameimg}}
           </div>
-          
-        <input type="submit" class="form_submit" value="Guardar" (click)="editCapt(so)">
-       </div>
-
+      </div>
+         <input type="submit" class="form_submit" value="Guardar" (click)="editCapt(so)">
     </div>   
   </section>
 </section>

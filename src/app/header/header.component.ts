@@ -13,15 +13,11 @@ export class HeaderComponent implements OnInit {
   habilitarPort:Boolean=false;
   nombre:string=" ";
   apellido:string=" ";
-  area:string="";
-  constructor(private portadaservice:PortadaService){
-
-  }
+  area:string=" ";
+  constructor(private portadaservice:PortadaService){}
 
   ngOnInit(): void {
-    this.portadaservice.getPersona().subscribe(
-      per=>this.persona=per
-    );
+    this.portadaservice.getPersona().subscribe(per=>this.persona=per);
   }
   
   editPortada(per:PortadaPersona){
@@ -32,6 +28,12 @@ export class HeaderComponent implements OnInit {
     this.habilitarPort=false;
   }
 
+  clickEditar(perso:PortadaPersona){
+    this.habilitarPort=true;
+    this.nombre=perso.nombre;
+    this.apellido=perso.apellido;
+    this.area=perso.area;
+  }
 
  
 
