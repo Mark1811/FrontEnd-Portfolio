@@ -1,18 +1,21 @@
 export class Experiencia {
-     id:number=0;
-     titluPuesto:string;
-     fechaInicio:number;
-     fechaFin:number;
-     descripcionPuesto:string;
+     id:number;
+     puesto:string;
+     fecha_inicio:string;
+     fecha_fin:string;
+     descrip_Expe:string;
      logoEmpresa:string;
+     modalEdit:boolean;
       
-     constructor(id:number,tituloPuesto:string,fechaInicio:number,fechaFin:number,descripiPuesto:string,logoEmpresa:string){
+     constructor(id:number,puesto:string,  fecha_inicio:any,fecha_fin:any,descrip_Expe:string,logoEmpresa:string,modalEdit:boolean){
             this.id=id;
-            this.titluPuesto=tituloPuesto;
-            this.fechaInicio=fechaInicio;
-            this.fechaFin=fechaFin;
-            this.descripcionPuesto=descripiPuesto;
+            this.puesto=puesto;
+            this.fecha_inicio=fecha_inicio;
+            this.fecha_fin=fecha_fin;
+            this.descrip_Expe=descrip_Expe;
             this.logoEmpresa=logoEmpresa;
+            this.modalEdit=modalEdit;
+           
      }
 
 

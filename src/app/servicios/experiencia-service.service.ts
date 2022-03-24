@@ -1,16 +1,38 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Experiencia } from '../model/experiencia';
-
+import {tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienciaServiceService {
+ 
+  private ulrMost:string="http://localhost:8080/expe/mostrar";
+  private ulrCrea:string="http://localhost:8080/expe/crear";
+  private ulrEdit:string="http://localhost:8080/expe/editar";
+  private _refresh$ = new Subject<void>()
+  constructor(private http:HttpClient) { }
 
-  constructor() { }
+  get refresh$(){
+    return this._refresh$;
+  }
+  
+ //Get mostrar experiencia
+  getExpe():Observable<any>{
+    return this.http.get(this.ulrMost);
+  }
 
-  ListExpe:Experiencia[]=[];
+  createExpe(desc:Experiencia):Observable<Experiencia>{
+    return this.http.post<Experiencia>(this.ulrCrea,desc)
+    .pipe(
+      tap(()=>{
+        this._refresh$.next(); // metodo para atualizar la àgina antes de que guarde
+      })
+    )
+  }
 
-  agregarExpe(expe:Experiencia){
-    this.ListExpe.push(expe);
+  editExpe(ex:Experiencia):Observable<Experiencia>{
+    return this.http.put<Experiencia>(this.ulrEdit,ex);
   }
 }

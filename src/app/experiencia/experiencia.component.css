@@ -1,9 +1,13 @@
+section{
+    position: relative;
+}
+
 .expe{
-   
+
     height: 300px;
-    padding-left: 110px;
+    padding-left: 150px;
     padding-right: 1px;
-    margin-bottom: 30px;
+    margin: 0px 40px 30px 40px;
     background: rgb(63,94,251);
     background: radial-gradient(circle, rgb(63, 94, 251) 0%, rgba(252, 70, 106, 0.74) 100%),url(../../assets/imagenes/personas-trabajando.jpg);
     background-position: center;
@@ -11,6 +15,9 @@
     background-attachment: fixed;
     position: relative;
     display: flex;
+    border-radius: 20px;
+    box-shadow: 1px 0px 8px #000;
+    
 }
 .titulo{
     font-size: 40px;
@@ -31,6 +38,7 @@
 .imgexpe{
     align-items: center;
     border-radius: 20px;
+    width: 150px; 
    
 }
 .cajali{
@@ -46,17 +54,20 @@
 @media screen and (max-width:700px){
 
     .expe{
-        height: 100%;
-        width: 100%;
-        padding:20px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        
     }
     
-   section .listas{
+    section .listas{
         flex-direction: column;
+        justify-content: center;
         text-align: center;
+       
     }
     .cajaimg{
-       
         align-content: center;
         justify-content: center;
     }

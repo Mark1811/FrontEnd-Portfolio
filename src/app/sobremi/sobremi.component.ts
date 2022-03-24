@@ -10,7 +10,6 @@ import { SobreserviceService } from '../servicios/sobreservice.service';
 })
 export class SobremiComponent implements OnInit {
   sobremi:any;
-  per:Sobremi[]=[];
   myimage: Observable<any>;
   nameimg:any;
   habiliModalSobremi:boolean=false;
@@ -43,10 +42,10 @@ export class SobremiComponent implements OnInit {
   }
    
   /* Metodo para editar la foto y descripcion*/ 
-  editCapt(per:Sobremi){
-    per.descripcion=this.captSobremi;
-    per.foto=this.captImg;
-    this.datosSobremiService.editDescripcion(per).subscribe();
+  editCapt(persona:Sobremi){
+    persona.descripcion=this.captSobremi;
+    persona.foto=this.captImg;
+    this.datosSobremiService.editDescripcion(persona).subscribe();
     this.habiliModalSobremi=false;
   }
 

@@ -1,8 +1,8 @@
 <section  *ngFor="let so of sobremi">
     <h1 class="titulo">Sobre mi</h1>
 
-      <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="abrirModal(so)"></i></div>
-         <div class="contenedor"><!--abro contenedor sobre mi-->
+           <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="abrirModal(so)"></i></div>
+      <div class="contenedor"><!--abro contenedor sobre mi-->
            <div class="contenedor-img-foto">
              <img [src]=" so.foto">
            </div>
