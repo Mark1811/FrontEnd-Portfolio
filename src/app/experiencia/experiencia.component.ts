@@ -6,7 +6,7 @@ import { ExperienciaServiceService } from '../servicios/experiencia-service.serv
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
-  styleUrls: ['./experiencia.component.css','./modalExpe.css']
+  styleUrls: ['./experiencia.component.css','./modalExpe.css','./modalAlerTStyle.css']
 })
 export class ExperienciaComponent implements OnInit {
      
@@ -22,6 +22,7 @@ export class ExperienciaComponent implements OnInit {
      capLogoEmpresa:any;
      abrirModal:boolean=false;
      abri2:boolean=false;
+     abriAler:boolean=false;
      nameimg:any;
     
     constructor(private expeService: ExperienciaServiceService) {}
@@ -55,7 +56,7 @@ export class ExperienciaComponent implements OnInit {
 
   //Metodo para crear experiencia//
      agregarExpe(){
-         let nuevaExpe = new Experiencia(this.experi.length,this.capTitluPuesto,this.capFechaInicio+" "+ this.capAnioIni,this.capFechaFin+" "+ this.capAnioFin ,this.capDescripcionPuesto,this.capLogoEmpresa,false);
+         let nuevaExpe = new Experiencia(this.experi.length,this.capTitluPuesto,this.capFechaInicio+" "+ this.capAnioIni,this.capFechaFin+" "+ this.capAnioFin ,this.capDescripcionPuesto,this.capLogoEmpresa,false,false);
          this.expeService.createExpe(nuevaExpe).subscribe();
          this.abrirModal=false;
       
@@ -84,7 +85,7 @@ export class ExperienciaComponent implements OnInit {
       } 
 
    abrirEdit(ex:Experiencia){
-    ex.modalEdit= true;
+    ex.modalEdit=!ex.modalEdit;
     this.capTitluPuesto=ex.puesto;
     this.capFechaInicio = ex.fecha_inicio.slice(0,3);
     this.capAnioIni= ex.fecha_inicio.slice(4,8);
@@ -93,7 +94,25 @@ export class ExperienciaComponent implements OnInit {
     this.capLogoEmpresa= ex.logoEmpresa;
     this.capDescripcionPuesto=ex.descrip_Expe;
    }
-   
-   
+
+   abrirAlert(elem:Experiencia){
+    elem.modalAlert=!elem.modalAlert;
+    this.capTitluPuesto= elem.puesto;
+   }
+
+   //metodo para eliminar experiencia
+   deleteExperi(e:Experiencia){
+     console.log(e.id);
+     this.expeService.deleteExpe(e.id).subscribe(
+      res=> this.expeService.getExpe().subscribe(
+        response => this.experi= response
+      )
+    );
+   }
+   exitAlert(closeAlert:Experiencia){
+     closeAlert.modalAlert=false;
+
+   }
+
 
 }

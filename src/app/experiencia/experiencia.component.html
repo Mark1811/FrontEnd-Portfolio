@@ -3,11 +3,13 @@
 <div class="icoDivPlus"><i class="fa-solid fa-circle-plus" id="iconeditAgre" (click)="abriModalExpe()"></i></div>
 
 <section >
+                   
      <ul *ngFor="let ex of experi">
                  <div class="iconExpe">
                    <i class="fa-solid fa-pen" id="iconedit" id="iconedit" (click)="abrirEdit(ex)"></i>
-                   <i class="fa-regular fa-trash-can" id="iconedit"></i>
+                   <i class="fa-regular fa-trash-can" id="iconedit" (click)="abrirAlert(ex)"></i>
                  </div> 
+               
            <section class="expe">
                      
                 <ul class="listas">
@@ -22,6 +24,21 @@
                             <p>{{ex.descrip_Expe}}</p>
                           </div>
                    </li>
+                                    <!--------------Modal Alert de eliminado-->
+
+                     <section  class="Alertmodal animate__animated animate__fadeInDown animate__faster" *ngIf="ex.modalAlert">
+                            <i id="iconClose" class="fa-solid fa-circle-xmark" (click)="exitAlert(ex)"></i>
+                    <div class="Alertform" >
+                  
+                      <h2 class="form_title">ELiminiar Experiencia</h2>
+                        
+                        <div class="form_container">
+                            <h3>{{ex.puesto}}</h3>
+                            <input required type="submit" class="form_submit" (click)="deleteExperi(ex)"  value="Confirmar">
+                        </div>
+                       
+                     </div>   
+                       </section> 
                 </ul>
           </section> 
                 <!----------Editar Modal Experiencia------------------->
@@ -295,6 +312,9 @@
                
            </div>   
                </section> 
+
+         
+       
      </ul>
 
    
@@ -571,8 +591,8 @@
            
           </div>   
       </section>
-
-       
+      
+      
         
    
          

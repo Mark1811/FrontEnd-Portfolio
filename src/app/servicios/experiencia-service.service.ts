@@ -11,6 +11,7 @@ export class ExperienciaServiceService {
   private ulrMost:string="http://localhost:8080/expe/mostrar";
   private ulrCrea:string="http://localhost:8080/expe/crear";
   private ulrEdit:string="http://localhost:8080/expe/editar";
+  private ulrDelete:string="http://localhost:8080/expe/eliminar";
   private _refresh$ = new Subject<void>()
   constructor(private http:HttpClient) { }
 
@@ -34,5 +35,9 @@ export class ExperienciaServiceService {
 
   editExpe(ex:Experiencia):Observable<Experiencia>{
     return this.http.put<Experiencia>(this.ulrEdit,ex);
+  }
+
+  deleteExpe(id:any):Observable<Experiencia>{
+    return this.http.delete<Experiencia>(this.ulrDelete +'/'+ id);
   }
 }
