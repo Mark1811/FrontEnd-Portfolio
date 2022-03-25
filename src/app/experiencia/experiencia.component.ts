@@ -13,12 +13,12 @@ export class ExperienciaComponent implements OnInit {
      experi:any;
      suscription:Subscription;
      id:number;
-     capTitluPuesto:string=" ";
-     capFechaInicio = " ";
-     capAnioIni= " ";
-     capFechaFin= " ";
-     capAnioFin =" ";
-     capDescripcionPuesto:string=" ";
+     capTitluPuesto:string;
+     capFechaInicio:string;
+     capAnioIni:string;
+     capFechaFin:string;
+     capAnioFin:string;
+     capDescripcionPuesto:string;
      capLogoEmpresa:any;
      abrirModal:boolean=false;
      abri2:boolean=false;
@@ -59,7 +59,6 @@ export class ExperienciaComponent implements OnInit {
          let nuevaExpe = new Experiencia(this.experi.length,this.capTitluPuesto,this.capFechaInicio+" "+ this.capAnioIni,this.capFechaFin+" "+ this.capAnioFin ,this.capDescripcionPuesto,this.capLogoEmpresa,false,false);
          this.expeService.createExpe(nuevaExpe).subscribe();
          this.abrirModal=false;
-      
      }
 
    //metodo para abrir modal

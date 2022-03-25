@@ -10,7 +10,7 @@
    
   }
 
-  .modal{
+.modal{
     position: absolute;
     z-index: 2;
     top:0;
@@ -133,13 +133,13 @@
   bottom: 2px;
   right: 30px;
  }
- .divbtnimg:hover{
+.divbtnimg:hover{
   background: coral;
   transition: 200ms;
   cursor: pointer;
  }
 
- .labelimg{
+.labelimg{
   color:#110b0b9d;
   position: absolute;
   left: 0;
