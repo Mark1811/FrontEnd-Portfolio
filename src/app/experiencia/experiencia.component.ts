@@ -101,7 +101,6 @@ export class ExperienciaComponent implements OnInit {
 
    //metodo para eliminar experiencia
    deleteExperi(e:Experiencia){
-     console.log(e.id);
      this.expeService.deleteExpe(e.id).subscribe(
       res=> this.expeService.getExpe().subscribe(
         response => this.experi= response

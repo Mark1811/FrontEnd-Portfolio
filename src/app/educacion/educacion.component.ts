@@ -3,29 +3,28 @@ import { Subscription } from 'rxjs';
 import { Educacion } from '../model/educacion';
 import { EducacionServiceService } from '../servicios/educacion-service.service';
 
+
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css','./modalEducacion.css']
+  styleUrls: ['./educacion.component.css','./modalEducacion.css','./modalAlertEdu.css']
 })
 export class EducacionComponent implements OnInit {
    
   suscription:Subscription;
   educacioData:Educacion[];
   abriModal:boolean=false;
-
-    id:number;
-    nombreInstitu:string;
-    nombreTitulo:string;
-    fecha_inicio:string;
-    anioInicio:string;
-    fecha_fin:string;
-    anioFin:string;
-    logoInstitu:string;
-    modalEdit:false;
-    modalAlert:false;
-
   
+  id:number;
+  nombreInstitu:string;
+  nombreTitulo:string;
+  fecha_inicio:string;
+  anioInicio:string;
+  fecha_fin:string;
+  anioFin:string;
+  logoInstitu:string;
+  modalEdit:boolean;
+  modalAlert:boolean;
 
   constructor(private educaService:EducacionServiceService) { }
 
@@ -41,8 +40,14 @@ export class EducacionComponent implements OnInit {
         
   }
   
-  abriModalExpe(){
+  abriModalEdu(){
     this.abriModal=true;
+    this.nombreInstitu="";
+    this.nombreTitulo="";
+    this.fecha_inicio="";
+    this.anioInicio="";
+    this.fecha_fin="";
+    this.anioFin="";
    
   }
   agregarEdu(){
@@ -53,10 +58,49 @@ export class EducacionComponent implements OnInit {
       let nuevaEstudio = new Educacion(this.id,this.nombreInstitu,this.nombreTitulo,this.fecha_inicio+" "+this.anioInicio,
       this.fecha_fin+" "+this.anioFin,this.logoInstitu,false,false);
       this.educaService.crearEdu(nuevaEstudio).subscribe();
-      console.log(this.fecha_inicio);
         this.abriModal=false;
       }
       
   }
 
+  saveEdit(edu:Educacion){
+    edu.nombreInstitu= this.nombreInstitu;
+    edu.nombreTitulo= this.nombreTitulo;
+    edu.fecha_inicio=this.fecha_inicio+" "+this.anioInicio;
+    edu.fecha_fin= this.fecha_fin+" "+this.anioFin;
+    this.educaService.editEdu(edu).subscribe();
+    edu.modalEdit=false;
+  }
+
+
+  editEduca(edu:Educacion){
+    edu.modalEdit=!edu.modalEdit;
+    this.nombreInstitu= edu.nombreInstitu;
+    this.nombreTitulo= edu.nombreTitulo;
+    this.fecha_inicio= edu.fecha_inicio.slice(0,3);
+    this.anioInicio= edu.fecha_inicio.slice(4,8);
+    this.fecha_fin=edu.fecha_fin.slice(0,3);
+    this.anioFin=edu.fecha_fin.slice(4,8);
+  
+  }
+
+  elimiEduca(edu:Educacion){
+    this.educaService.deleteEdu(edu.id).subscribe(
+      res=> this.educaService.getEdu().subscribe(
+        response=> this.educacioData=response
+      )
+    )
+  }
+
+  abriAlert(edu:Educacion){
+      edu.modalAlert=!edu.modalAlert;
+      this.nombreTitulo=edu.nombreTitulo;
+  }
+  exitEdu(edu:Educacion){
+    edu.modalAlert=false;
+  }
+
 }
+
+
+

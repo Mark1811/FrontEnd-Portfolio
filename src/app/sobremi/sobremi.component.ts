@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { Sobremi } from '../model/sobremi';
 import { SobreserviceService } from '../servicios/sobreservice.service';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sobremi',
@@ -9,13 +10,28 @@ import { SobreserviceService } from '../servicios/sobreservice.service';
   styleUrls: ['./sobremi.component.css']
 })
 export class SobremiComponent implements OnInit {
+ 
+  sobremi:Sobremi[]=[];
+  habiliModalSobremi:boolean=false;
+  forms:FormGroup;
+  id:number; 
+  nameimg:any;
+  captImg:any;
+ 
+ /*
   sobremi:any;
   myimage: Observable<any>;
   nameimg:any;
   habiliModalSobremi:boolean=false;
   captSobremi:string=" ";
   captImg:any;
-  constructor(private datosSobremiService:SobreserviceService) { }
+  */
+  constructor(private datosSobremiService:SobreserviceService,private formsBuilder: FormBuilder ) { 
+    this.forms=this.formsBuilder.group({
+        descripcion:['',[]],
+        archivo:['',[]]
+    })
+  }
  
   
   ngOnInit(): void {
