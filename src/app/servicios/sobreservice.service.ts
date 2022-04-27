@@ -8,17 +8,20 @@ import { Sobremi } from '../model/sobremi';
 })
 export class SobreserviceService {
   
-  private url:string ="http://localhost:8080/sobremi/mostrar";
-  private putUrl:string="http://localhost:8080/sobremi/editar";
+  private baseUrl:string ="http://localhost:8080/sobremi";
+  
   constructor(private http:HttpClient) { }
 
   //metodo para obtener datos de la api
   getSobremi():Observable<any>{
-    return this.http.get(this.url);
+    return this.http.get(this.baseUrl+"/"+"mostrar");
+  }
+  getMostraId(id:number){
+    return this.http.get<Sobremi>(this.baseUrl+"/"+id);
   }
   
   editDescripcion(des:Sobremi):Observable<Sobremi>{
-   return this.http.put<Sobremi>(this.putUrl,des);
+   return this.http.put<Sobremi>(this.baseUrl+"/"+"editar",des);
   }
 
 

@@ -1,87 +1,86 @@
-<header  *ngFor="let per of persona">
-   <!-------------------NAV -------------------->
-    <img src="../../assets/imagenes/ARGENTINA-PROGRAMA.jpg" class="ico-ar"> 
-    <input type="checkbox" id="check">
-    <label for="check"><img src="../../assets/imagenes/border-width.svg" class="icon-menu"></label>
-    
-    <div class="menu">
-       <ul >
-        <li><a href="#">
-          <button class="respon">Login</button>
-        </a></li> 
-        <li><a href="#">
-         <img src="../../assets/imagenes/LinkedIn_logo_initials.png" class="icon-link">
+<header *ngFor="let per of persona">
+  <!-------------------NAV -------------------->
+  <img src="../../assets/imagenes/ARGENTINA-PROGRAMA.jpg" class="ico-ar">
+  <input type="checkbox" id="check">
+  <label for="check"><img src="../../assets/imagenes/border-width.svg" class="icon-menu"></label>
+
+  <div class="menu">
+    <ul>
+      <li>
+        <button class="respon">Login</button>
+      </li>
+      <li><a href="#">
+          <img src="../../assets/imagenes/LinkedIn_logo_initials.png" class="icon-link">
         </a></li>
-        <li><a href="https://www.facebook.com/">
+      <li><a href="https://www.facebook.com/">
           <img src="../../assets/imagenes/facebook-770688_1280.png" class="icon-link">
         </a></li>
-        <li><a href="#">
+      <li><a href="#">
           <img src="../../assets/imagenes/pngegg.png" class="icon-link">
         </a></li>
-        
-       </ul>
-       <button class="btn-inicio">Login</button>
-    </div>
-     
 
- 
-<!---------------------------TITULO Portada--------------------->
-<div class="contenedor">
-  
-  <div class="contenedor-textos">
-    <h1>{{per.nombre+ " " + per.apellido}} 
-      <i class="fa-solid fa-pen" id="iconedit" (click)="clickEditar(per.id)"></i>
-    </h1>
-    <h2>{{per.area}}</h2>
-    
+    </ul>
+    <button class="btn-inicio" (click)=" onLogin()">Login</button>
   </div>
 
-  <div class="contenedor-img">
-  <img src="../../assets/imagenes/tec-human.svg">
-  </div>  
 
-</div><!-- cierro caja contenedor-->
 
- 
-<!--VENTANA MODAL PORTADA-->
+  <!---------------------------TITULO Portada--------------------->
+  <div class="contenedor">
+
+    <div class="contenedor-textos">
+      <h1>{{per.nombre+ " " + per.apellido}}
+        <i class="fa-solid fa-pen" id="iconedit" (click)="clickEditar(per.id)"></i>
+      </h1>
+      <h2>{{per.area}}</h2>
+
+    </div>
+
+    <div class="contenedor-img">
+      <img src="../../assets/imagenes/tec-human.svg">
+    </div>
+
+  </div><!-- cierro caja contenedor-->
+
+
+  <!--VENTANA MODAL PORTADA-->
   <section class="modal" *ngIf="habilitarPort">
-    <div class="form textoin animate__animated animate__fadeInDown animate__faster" >
-           <div class="btnClose"><i id="iconClose" class="fa-solid fa-circle-xmark" (click)="exitAlert()"></i></div>
+    <div class="form textoin animate__animated animate__fadeInDown animate__faster">
+      <div class="btnClose"><i id="iconClose" class="fa-solid fa-circle-xmark" (click)="exitAlert()"></i></div>
       <h2 class="form_title">Portfolio</h2>
-            
-       <form class="form_container" [formGroup]="form"  (ngSubmit)="onEnviar($event)">
-          <div class="formGrup">
-            <input type="text"  class="form_input" formControlName="nombre"/>
-            <label class="form_label">Nombre</label>
-            <span class="formLine"></span>
-               <div *ngIf="Nombre?.errors && Nombre?.touched">
-                      <p *ngIf="Nombre?.hasError('required')" class="error">El nombre es requerido</p> 
-               </div>
+
+      <form class="form_container" [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="formGrup">
+          <input type="text" class="form_input" formControlName="nombre" />
+          <label class="form_label">Nombre</label>
+          <span class="formLine"></span>
+          <div *ngIf="Nombre?.errors && Nombre?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="error">El nombre es requerido</p>
           </div>
+        </div>
 
-          <div class="formGrup">
-           <input type="text"  id="apellido" class="form_input" formControlName="apellido">
-           <label for="apellido" class="form_label">Apellido</label>
-           <span class="formLine"></span>
-                 <div *ngIf="Apellido?.errors && Apellido?.touched">
-                            <p *ngIf="Apellido?.hasError('required')" class="error">El apellido es requerido</p> 
-                 </div>
-         </div>
+        <div class="formGrup">
+          <input type="text" id="apellido" class="form_input" formControlName="apellido">
+          <label for="apellido" class="form_label">Apellido</label>
+          <span class="formLine"></span>
+          <div *ngIf="Apellido?.errors && Apellido?.touched">
+            <p *ngIf="Apellido?.hasError('required')" class="error">El apellido es requerido</p>
+          </div>
+        </div>
 
-         <div class="formGrup">
-           <input type="text" id="area" class="form_input" formControlName="area" >
-           <label for="area" class="form_label">Area</label>
-           <span class="formLine"></span>
-         </div>
+        <div class="formGrup">
+          <input type="text" id="area" class="form_input" formControlName="area">
+          <label for="area" class="form_label">Area</label>
+          <span class="formLine"></span>
+        </div>
 
-          <input type="submit" class="form_submit" [ngClass]="{botonGuarda:Nombre?.hasError('required')}" 
+        <input type="submit" class="form_submit" [ngClass]="{botonGuarda:Nombre?.hasError('required')}"
           [ngClass]="{botonGuarda:Apellido?.hasError('required')}" value="Guardar" (click)="onEnviar($event)">
-        </form>
-    
+      </form>
+
     </div>
 
   </section>
 
 
 </header>
-

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortadaPersona } from '../model/portada-persona';
 import { PortadaService } from '../servicios/portada.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   
 
 
-  constructor(private portadaservice:PortadaService, private formsBuilder: FormBuilder){
+  constructor(private portadaservice:PortadaService, private formsBuilder: FormBuilder,private ruta:Router){
     this.form= this.formsBuilder.group({
       nombre:['',[Validators.required]],
       apellido:['',[Validators.required]],
@@ -28,6 +29,11 @@ export class HeaderComponent implements OnInit {
     
   }
   
+  onLogin(){
+       this.ruta.navigate(['/login']);
+  }
+
+
   getPersona(){
     this.portadaservice.getPersona().subscribe(per=>this.persona=per);
   }

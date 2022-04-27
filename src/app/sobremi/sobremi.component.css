@@ -67,6 +67,7 @@ section .contenedor{
     border-radius: 10px;
     text-align: center;
     margin: auto;
+  
   }
   .textSobremi{
      width: 100%;
@@ -184,7 +185,30 @@ section .contenedor{
     color: rgb(63,94,251);
     transform: 200ms;
 }
-  
+
+.error{
+    color:red;
+    font-size: 12px;
+}
+
+.btnClose{
+    position: relative;
+    bottom: 75px;
+}
+
+#iconClose{
+    position: absolute;
+    color: rgb(63,94,251);
+    font-size: 45px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+#iconClose:hover{
+    color:coral;
+}
 @media screen and (max-width:900px) {
         section .contenedor{
            flex-direction: column;

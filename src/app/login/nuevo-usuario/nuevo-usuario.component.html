@@ -1,0 +1,9 @@
+<form [formGroup]="form" >
+    
+    <p>NombreUsuario</p>
+    <input type="text" formControlName="nombreUsuario">
+    <p>Password</p>
+    <input type="text" formControlName="password">
+    <br>
+    <button type="submit" (click)="onEnviar($event)">enviar</button>
+</form>

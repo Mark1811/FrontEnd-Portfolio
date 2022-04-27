@@ -8,6 +8,18 @@ import { SobremiComponent } from './sobremi/sobremi.component';
 import { ExperienciaComponent } from './experiencia/experiencia.component';
 import { EducacionComponent } from './educacion/educacion.component';
 import { ReactiveFormsModule} from '@angular/forms';
+import { NuevoUsuarioComponent } from './login/nuevo-usuario/nuevo-usuario.component';
+import { RouterModule, Routes } from '@angular/router';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { interceptorProvider } from './servicios/interceptor.service';
+
+const appRoutes:Routes=[
+      {path:'portfolio', component:PortfolioComponent},
+      {path:'login', component:NuevoUsuarioComponent}
+];
+
+
+
 
 @NgModule({
   declarations: [
@@ -16,15 +28,17 @@ import { ReactiveFormsModule} from '@angular/forms';
     SobremiComponent,
     ExperienciaComponent,
     EducacionComponent,
-    
+    NuevoUsuarioComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

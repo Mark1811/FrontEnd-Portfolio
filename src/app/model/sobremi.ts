@@ -1,13 +1,13 @@
 export class Sobremi{
    
-    id:number=0;
+    idsobremi:number;
     descripcion:string="";
-    foto:string="";
+    foto:string;
 
     
-    constructor(id:number,descripcion:string,foto:string){
+    constructor(idsobremi:number,descripcion:string,foto:string){
 
-        this.id=id;
+        this.idsobremi=idsobremi;
         this.descripcion=descripcion;
         this.foto=foto;
       }
