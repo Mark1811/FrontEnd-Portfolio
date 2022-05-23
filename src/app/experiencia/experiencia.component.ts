@@ -56,9 +56,17 @@ export class ExperienciaComponent implements OnInit {
 
   //Metodo para crear experiencia//
      agregarExpe(){
+     
          let nuevaExpe = new Experiencia(this.experi.length,this.capTitluPuesto,this.capFechaInicio+" "+ this.capAnioIni,this.capFechaFin+" "+ this.capAnioFin ,this.capDescripcionPuesto,this.capLogoEmpresa,false,false);
-         this.expeService.createExpe(nuevaExpe).subscribe();
-         this.abrirModal=false;
+         if(this.capAnioIni > this.capAnioFin){
+          alert("error en la fecha");
+        }
+        else{
+          this.expeService.createExpe(nuevaExpe).subscribe();
+          this.abrirModal=false;
+         
+        }
+       
      }
 
    //metodo para abrir modal
@@ -72,6 +80,10 @@ export class ExperienciaComponent implements OnInit {
       this.capLogoEmpresa="";
       this.capDescripcionPuesto="";
    }
+   //cerrar modal
+   alertExit(){
+     this.abrirModal=false;
+   }
    // metodo para guardar un exeriencia editada
    saveExper(elem:Experiencia){
      elem.puesto=this.capTitluPuesto;
@@ -79,8 +91,14 @@ export class ExperienciaComponent implements OnInit {
      elem.fecha_fin= this.capFechaFin + " " + this.capAnioFin;
      elem.descrip_Expe=this.capDescripcionPuesto;
      elem.logoEmpresa= this.capLogoEmpresa;
-     this.expeService.editExpe(elem).subscribe();
+     if(this.capAnioIni > this.capAnioFin){
+      alert("error en la fecha");
+    }else{
+      this.expeService.editExpe(elem).subscribe();
       elem.modalEdit=false;
+    }
+    
+
       } 
 
    abrirEdit(ex:Experiencia){

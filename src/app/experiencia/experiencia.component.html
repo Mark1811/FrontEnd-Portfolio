@@ -45,6 +45,7 @@
                <section  class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="ex.modalEdit">
                      
             <div class="form" >
+                 <div class="btnClose"><i id="iClose" class="fa-solid fa-circle-xmark" (click)="abrirEdit(ex)"></i></div>
               <h2 class="form_title">Edit Experiencia</h2>
                 <div class="form_container">
                  <input type="text" class="form_input" [(ngModel)]="capTitluPuesto">
@@ -323,6 +324,7 @@
       <section  class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="abrirModal">
                               
         <div class="form">
+            <div class="btnClose"><i id="iClose" class="fa-solid fa-circle-xmark" (click)="alertExit()"></i></div>
           <h2 class="form_title">Crear Experiencia</h2>
             <div class="form_container">
              <input type="text" class="form_input" [(ngModel)]="capTitluPuesto">

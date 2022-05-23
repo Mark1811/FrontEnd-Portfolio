@@ -12,7 +12,7 @@
           <section class="educa">
                    
               <ul class="listas">
-                <img src="../../assets/imagenes/facebook-770688_1280.png"  class="imgedu">
+                <img [src]="edu.logoInstitu"  class="imgedu">
                   <li>  
                         <div class="cajali">
                           <h2>{{edu.nombreInstitu}}</h2> 
@@ -41,6 +41,7 @@
                          <!----------Editar Modal Educacion------------------->
                          <section  class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="edu.modalEdit">
                           <div class="form">
+                             <div class="btnClose"><i id="iClose" class="fa-solid fa-circle-xmark" (click)="cerrarModal(edu)"></i></div>
                             <h2 >Editar Estudio</h2>
                               <div class="form_container">
                                <input type="text" class="form_input" [(ngModel)]="nombreInstitu">
@@ -311,7 +312,7 @@
                                   <div class="descripEdu">
                                         <div class="divbtnimg">
                                           <label for="imagen" class="labelimg">logo*</label>
-                                          <input type="file" class="inputimg"/>
+                                          <input type="file" (change)="convertirBs64($event)" class="inputimg"/>
                                           <p>seleccion archivo:</p>
                                         </div>
                                           
@@ -335,6 +336,7 @@
       <section  class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="abriModal">
                               
         <div class="form">
+          <div class="btnClose"><i id="iClose" class="fa-solid fa-circle-xmark" (click)="exitModal()"></i></div>
           <h2 >Nuevo Estudio</h2>
             <div class="form_container">
              <input type="text" class="form_input" [(ngModel)]="nombreInstitu">
@@ -605,7 +607,7 @@
                 <div class="descripEdu">
                       <div class="divbtnimg">
                         <label for="imagen" class="labelimg">logo*</label>
-                        <input type="file" class="inputimg"/>
+                        <input type="file" (change)="convertirBs64($event)" class="inputimg"/>
                         <p>seleccion archivo:</p>
                       </div>
                         

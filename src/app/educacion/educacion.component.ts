@@ -14,7 +14,7 @@ export class EducacionComponent implements OnInit {
   suscription:Subscription;
   educacioData:Educacion[];
   abriModal:boolean=false;
-  
+  nameimg:any;
   id:number;
   nombreInstitu:string;
   nombreTitulo:string;
@@ -25,6 +25,8 @@ export class EducacionComponent implements OnInit {
   logoInstitu:string;
   modalEdit:boolean;
   modalAlert:boolean;
+  capLogoEmpresa:any;
+  
 
   constructor(private educaService:EducacionServiceService) { }
 
@@ -50,24 +52,30 @@ export class EducacionComponent implements OnInit {
     this.anioFin="";
    
   }
+  exitModal(){
+    this.abriModal=false;
+  }
   agregarEdu(){
       if(this.anioInicio > this.anioFin){
         alert("No se puede elegir un año mayor al de finalizacion");
       }
       else{
       let nuevaEstudio = new Educacion(this.id,this.nombreInstitu,this.nombreTitulo,this.fecha_inicio+" "+this.anioInicio,
-      this.fecha_fin+" "+this.anioFin,this.logoInstitu,false,false);
+      this.fecha_fin+" "+this.anioFin,this.capLogoEmpresa,false,false);
       this.educaService.crearEdu(nuevaEstudio).subscribe();
         this.abriModal=false;
       }
       
   }
-
+  cerrarModal(edu:Educacion){
+   edu.modalEdit=false;
+  }
   saveEdit(edu:Educacion){
     edu.nombreInstitu= this.nombreInstitu;
     edu.nombreTitulo= this.nombreTitulo;
     edu.fecha_inicio=this.fecha_inicio+" "+this.anioInicio;
     edu.fecha_fin= this.fecha_fin+" "+this.anioFin;
+    edu.logoInstitu= this.capLogoEmpresa;
     this.educaService.editEdu(edu).subscribe();
     edu.modalEdit=false;
   }
@@ -99,6 +107,22 @@ export class EducacionComponent implements OnInit {
   exitEdu(edu:Educacion){
     edu.modalAlert=false;
   }
+
+ //Metodo para pasar El logo a base64
+ convertirBs64(event:any){
+  const archiImg = event.target.files;
+  this.nameimg= event.target.files[0].name;
+  const reader = new FileReader();
+  reader.readAsDataURL(archiImg[0]);
+  reader.onloadend=()=>{
+      try{
+        this.capLogoEmpresa=reader.result;
+      }
+      catch{
+        console.log("Error Base64");
+      }  
+  } 
+}
 
 }
 

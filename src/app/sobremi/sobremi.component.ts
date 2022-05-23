@@ -70,7 +70,6 @@ export class SobremiComponent implements OnInit {
          this.id=idsobremi;
          this.forms.setValue({descripcion,foto})
         })
-    
   }
   
   /* Metodo para editar la foto y descripcion*/ 

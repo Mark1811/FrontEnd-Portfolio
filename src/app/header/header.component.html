@@ -9,14 +9,11 @@
       <li>
         <button class="respon">Login</button>
       </li>
-      <li><a href="#">
+      <li><a href="https://www.linkedin.com/in/marcos-aguero-frontend-developer/">
           <img src="../../assets/imagenes/LinkedIn_logo_initials.png" class="icon-link">
         </a></li>
-      <li><a href="https://www.facebook.com/">
-          <img src="../../assets/imagenes/facebook-770688_1280.png" class="icon-link">
-        </a></li>
-      <li><a href="#">
-          <img src="../../assets/imagenes/pngegg.png" class="icon-link">
+      <li><a href="https://github.com/Mark1811/">
+          <img src="../../assets/imagenes/logotipo-de-github.png" class="icon-link">
         </a></li>
 
     </ul>
@@ -51,7 +48,7 @@
 
       <form class="form_container" [formGroup]="form" (ngSubmit)="onEnviar($event)">
         <div class="formGrup">
-          <input type="text" class="form_input" formControlName="nombre" />
+          <input type="text" class="form_input" formControlName="nombre"/>
           <label class="form_label">Nombre</label>
           <span class="formLine"></span>
           <div *ngIf="Nombre?.errors && Nombre?.touched">

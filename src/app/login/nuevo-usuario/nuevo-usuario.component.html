@@ -1,9 +1,25 @@
-<form [formGroup]="form" >
-    
-    <p>NombreUsuario</p>
-    <input type="text" formControlName="nombreUsuario">
-    <p>Password</p>
-    <input type="text" formControlName="password">
-    <br>
-    <button type="submit" (click)="onEnviar($event)">enviar</button>
-</form>
+
+<div class="contenedor">
+     <form [formGroup]="form"  class="form">
+        
+        <p>Usuario</p>
+        <div *ngIf="Usuario?.errors && Usuario?.touched">
+          <p *ngIf="Usuario?.hasError('required')" class="error">El usuario es requerido</p>
+        </div>
+        <input type="text" formControlName="nombreUsuario" class="text1">
+       
+        <p>Password</p>
+          <div *ngIf="Pass?.errors && Usuario?.touched">
+            <p *ngIf="Pass?.hasError('required')" class="error2">la contraseña es requerida</p>
+          </div>
+        <input type="text" formControlName="password" class="text1">
+        <br>
+        <button type="submit" [ngClass]="{botonGuarda:Usuario?.hasError('required')}" 
+         [ngClass]="{botonGuarda:Pass?.hasError('required')}" (click)="onEnviar($event)" class="btn">enviar</button>
+           <div *ngIf="loginFail"  class="alert">
+         <p>usuario o contraseña invalido</p>
+           </div>
+     </form>
+     
+</div>
+

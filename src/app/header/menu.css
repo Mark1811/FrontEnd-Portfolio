@@ -1,13 +1,14 @@
 .ico-ar{
     width: 10rem;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
     border-radius: 10px; 
    }
    .icon-link{
        width: 30px;
        border-radius: 10px;
-       display: inline;
+       display: block;
+       border: solid 1px black;
    }
    .btn-inicio{
        width: 90px;
@@ -17,7 +18,7 @@
        padding: 10px;
        color:#fff;
        position: absolute;
-       margin-left: 240px;
+       margin-left: 150px;
        margin-top: -40px;
        display: inline;
    }
@@ -27,6 +28,7 @@
        background: rgb(255, 255, 255);
        color: coral;
        transition: all 200ms;
+       cursor: pointer;
    }
    .respon{
        display: none;
@@ -56,11 +58,11 @@
       float: right;
       margin-top: 2rem;
       margin-right: 9rem;
-      
+     
    }
    .menu ul{
        display:flex;
-       
+    
    }
    .menu li{
       list-style: none; 
@@ -70,7 +72,7 @@
        text-decoration: none;
        color:#fff;
        font-weight:450;
-   
+        
    }
    .menu li a:hover{
        color:coral;
