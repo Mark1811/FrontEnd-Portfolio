@@ -12,6 +12,9 @@ import { NuevoUsuarioComponent } from './login/nuevo-usuario/nuevo-usuario.compo
 import { RouterModule, Routes } from '@angular/router';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { interceptorProvider } from './servicios/interceptor.service';
+import { SkillComponent } from './skill/skill.component';
+
+
 
 const appRoutes:Routes=[
       {path:'portfolio', component:PortfolioComponent},
@@ -29,7 +32,8 @@ const appRoutes:Routes=[
     ExperienciaComponent,
     EducacionComponent,
     NuevoUsuarioComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
