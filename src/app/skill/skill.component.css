@@ -58,3 +58,7 @@
     display: block;
  
 }
+.contenedor-skill{
+    display: flex;
+    justify-content: center;
+}
