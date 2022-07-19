@@ -10,6 +10,7 @@ export class SkillComponent implements OnInit {
 
   skill:any;
 
+
   constructor(private skillService:SkillServiceService) { }
 
   ngOnInit(): void {
@@ -17,5 +18,4 @@ export class SkillComponent implements OnInit {
       this.skill=data;
     })
   }
-
 }
