@@ -21,7 +21,7 @@ export class SobremiComponent implements OnInit {
 
   constructor(private datosSobremiService:SobreserviceService,private formsBuilder: FormBuilder ) { 
     this.forms=this.formsBuilder.group({
-        descripcion:['',[Validators.required,Validators.maxLength(200)]],
+        descripcion:['',[Validators.required,Validators.maxLength(300)]],
         foto:['',[]]
     })
   }

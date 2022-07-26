@@ -1,0 +1,11 @@
+.content{
+    margin-top: 200px;
+    padding: 45px;
+    display: flex;
+    justify-content: center;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgb(63, 94, 251) 0%, rgba(252, 70, 106, 0.74) 100%),url(../../assets/imagenes/personas-trabajando.jpg);
+}
+.content >p{
+    color: #fff;
+}

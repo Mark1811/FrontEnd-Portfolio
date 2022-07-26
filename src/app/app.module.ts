@@ -13,6 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { interceptorProvider } from './servicios/interceptor.service';
 import { SkillComponent } from './skill/skill.component';
+import { ProyectoComponent } from './proyecto/proyecto.component';
+import { FuterComponent } from './futer/futer.component';
 
 
 
@@ -33,7 +35,9 @@ const appRoutes:Routes=[
     EducacionComponent,
     NuevoUsuarioComponent,
     PortfolioComponent,
-    SkillComponent
+    SkillComponent,
+    ProyectoComponent,
+    FuterComponent
   ],
   imports: [
     BrowserModule,
