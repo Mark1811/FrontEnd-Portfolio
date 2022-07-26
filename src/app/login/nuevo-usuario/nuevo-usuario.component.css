@@ -84,6 +84,12 @@ p{
     border: none;
     border-radius: .5em;
    }
-   .botonGuarda:hover{
+.botonGuarda:hover{
        background: #706c6c;
-   }
+ }
+ .tirulo-bienvenida{
+     display: flex;
+     position: absolute;
+     margin-top: 40px;
+     color: rgb(74, 68, 68);
+ }

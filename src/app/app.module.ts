@@ -20,7 +20,7 @@ import { FuterComponent } from './futer/futer.component';
 
 const appRoutes:Routes=[
       {path:'portfolio', component:PortfolioComponent},
-      {path:'login', component:NuevoUsuarioComponent}
+      {path:'',component:NuevoUsuarioComponent,pathMatch:'full'}
 ];
 
 

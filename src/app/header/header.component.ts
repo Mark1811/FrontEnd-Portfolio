@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
   
   onLogin(){
-       this.ruta.navigate(['/login']);
+       this.ruta.navigate(['']);
   }
 
 
