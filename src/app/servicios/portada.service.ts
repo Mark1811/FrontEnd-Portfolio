@@ -13,9 +13,9 @@ const httpOptions ={
   providedIn: 'root'
 })
 export class PortadaService {
-  private url:string ="http://localhost:8080/mostrar";
-  private urlpost:string="http://localhost:8080/editar";
-  private urlPerId:string="http://localhost:8080/personaId";
+  private url:string ="https://portfolio-back-marcos.herokuapp.com/mostrar";
+  private urlpost:string="https://portfolio-back-marcos.herokuapp.com/editar";
+  private urlPerId:string="https://portfolio-back-marcos.herokuapp.com/personaId";
 
   constructor(private http: HttpClient) {}
 
