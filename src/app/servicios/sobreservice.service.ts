@@ -8,7 +8,7 @@ import { Sobremi } from '../model/sobremi';
 })
 export class SobreserviceService {
   
-  private baseUrl:string ="http://localhost:8080/sobremi";
+  private baseUrl:string ="https://portfolio-back-marcos.herokuapp.com/sobremi";
   
   constructor(private http:HttpClient) { }
 

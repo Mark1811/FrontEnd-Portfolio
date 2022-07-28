@@ -13,7 +13,7 @@ const httpOptions ={
 })
 
 export class SkillServiceService {
-   private urlBase:string="http://localhost:8080/skill"
+   private urlBase:string="https://portfolio-back-marcos.herokuapp.com/skill"
    private _refresh$ = new Subject< void >()
 
   constructor(private http:HttpClient) { }

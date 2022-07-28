@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EducacionServiceService {
-  private ulrBase:string="http://localhost:8080/edu";
+  private ulrBase:string="https://portfolio-back-marcos.herokuapp.com/edu";
   private _refresh$ = new Subject< void >()
 
   constructor(private http:HttpClient) { }

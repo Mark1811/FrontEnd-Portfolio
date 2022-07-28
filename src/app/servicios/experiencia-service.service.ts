@@ -8,10 +8,10 @@ import {tap } from 'rxjs/operators';
 })
 export class ExperienciaServiceService {
  
-  private ulrMost:string="http://localhost:8080/expe/mostrar";
-  private ulrCrea:string="http://localhost:8080/expe/crear";
-  private ulrEdit:string="http://localhost:8080/expe/editar";
-  private ulrDelete:string="http://localhost:8080/expe/eliminar";
+  private ulrMost:string="https://portfolio-back-marcos.herokuapp.com/expe/mostrar";
+  private ulrCrea:string="https://portfolio-back-marcos.herokuapp.com/expe/crear";
+  private ulrEdit:string="https://portfolio-back-marcos.herokuapp.com/editar";
+  private ulrDelete:string="https://portfolio-back-marcos.herokuapp.com/expe/eliminar";
   private _refresh$ = new Subject<void>()
   constructor(private http:HttpClient) { }
 
