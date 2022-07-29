@@ -10,7 +10,7 @@ export class ExperienciaServiceService {
  
   private ulrMost:string="https://portfolio-back-marcos.herokuapp.com/expe/mostrar";
   private ulrCrea:string="https://portfolio-back-marcos.herokuapp.com/expe/crear";
-  private ulrEdit:string="https://portfolio-back-marcos.herokuapp.com/editar";
+  private ulrEdit:string="https://portfolio-back-marcos.herokuapp.com/expe/editar";
   private ulrDelete:string="https://portfolio-back-marcos.herokuapp.com/expe/eliminar";
   private _refresh$ = new Subject<void>()
   constructor(private http:HttpClient) { }
