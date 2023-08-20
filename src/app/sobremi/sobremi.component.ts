@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { Sobremi } from '../model/sobremi';
 import { SobreserviceService } from '../servicios/sobreservice.service';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sobremi',
@@ -13,13 +13,13 @@ export class SobremiComponent implements OnInit {
  
   sobremi:any;
   habiliModalSobremi:boolean=false;
-  forms:FormGroup;
+  forms:UntypedFormGroup;
   id:number; 
   nameimg:any;
   captImg:any;
  
 
-  constructor(private datosSobremiService:SobreserviceService,private formsBuilder: FormBuilder ) { 
+  constructor(private datosSobremiService:SobreserviceService,private formsBuilder: UntypedFormBuilder ) { 
     this.forms=this.formsBuilder.group({
         descripcion:['',[Validators.required,Validators.maxLength(300)]],
         foto:['',[]]

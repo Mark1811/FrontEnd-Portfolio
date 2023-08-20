@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -10,12 +10,12 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./nuevo-usuario.component.css']
 })
 export class NuevoUsuarioComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   loginValid = false;
   loginFail= false;
   errorMsj:string;
 
-  constructor(private formsBuilder: FormBuilder, private loginService:LoginServiceService, 
+  constructor(private formsBuilder: UntypedFormBuilder, private loginService:LoginServiceService, 
     private ruta:Router, private tokenService:TokenService ) { 
     
     this.form= this.formsBuilder.group({

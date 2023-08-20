@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortadaPersona } from '../model/portada-persona';
 import { PortadaService } from '../servicios/portada.service';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   persona:PortadaPersona[]=[];
   habilitarPort:Boolean;
-  form: FormGroup;
+  form: UntypedFormGroup;
   id:number;
   
 
 
-  constructor(private portadaservice:PortadaService, private formsBuilder: FormBuilder,private ruta:Router){
+  constructor(private portadaservice:PortadaService, private formsBuilder: UntypedFormBuilder,private ruta:Router){
     this.form= this.formsBuilder.group({
       nombre:['',[Validators.required]],
       apellido:['',[Validators.required]],
