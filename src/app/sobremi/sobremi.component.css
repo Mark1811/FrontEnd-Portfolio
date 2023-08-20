@@ -1,6 +1,6 @@
 section{
     width: 100%;
-    height: 90%;
+    height: 980px;
     position: relative;
     overflow: hidden;
     background: #fff;
@@ -10,18 +10,32 @@ section .contenedor{
   display: flex;
   width: 100%;
   margin: auto;
-  height: 650px;
+  height: 750px;
   align-items: center;
   justify-content: space-evenly;
+  justify-items: center;
   
 }
 
 .titulo{
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     margin-bottom: 30px;
     margin-top: 50px;
     color:coral;
+    
+}
+.linea{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 1px;
+
+}
+
+.lineaAdentro{
+    border: solid 1px coral;
+    width: 5%;
 }
 
 .texto-sobremi{
@@ -56,19 +70,6 @@ section .contenedor{
     
 }
 
-/*------MODAL SOBRE MI--------*/
-.form{
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 200px;
-    width: 100%;
-    max-width: 700px;
-    max-height: 550px;
-    padding: 4em 3em;
-    border-radius: 10px;
-    text-align: center;
-    margin: auto;
-  
-  }
   .textSobremi{
      width: 100%;
      max-width: 600px;
@@ -100,115 +101,8 @@ section .contenedor{
     position: absolute;
     left: 0;
     bottom: 50px;
-    
-  }
- 
-  .form_title{
-       font-size: 2rem;
-       margin-bottom: 3rem;
-
-  }
-  
-  .form_container{
-      margin-top: 4em;
-      display:grid;
-  }
-  .formGrup{
-      display: flex;
-  
   }
 
-  .form_submit{
-      background: rgb(63,94,251);
-      color: #fff;
-      font-weight: 300;
-      font-size: 1rem;
-      padding: .8em 0;
-      width: 100%;
-      display: flex;
-      margin-top: 14px;
-      justify-content: center;
-      border: none;
-      border-radius: .5em;
-  }
-  .form_submit:hover{
-      background: coral;
-      transition: 200ms;
-      cursor: pointer;
-  }
-   .inputimg{
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-   }
-   .divbtnimg{
-    position: relative;
-    background: rgb(63,94,251);
-    color: #fff;
-    padding: .8em 0 ;
-    border: none;
-    border-radius: .5em;
-   }
-   .divbtnimg:hover{
-    background: coral;
-    transition: 200ms;
-    cursor: pointer;
-   }
-   
-  .modal{
-    position: absolute;
-    top:0;
-    left:0;
-    right: 0;
-    bottom: 0;
-    background-color:#111111bd;
-    display: flex;
-}
-
-.iconSobremi{
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-#iconedit{
-    cursor: pointer; 
-    font-size: 6vh;
-    color: rgba(0, 0, 0, 0.623);
-}
-#iconedit:hover{
-    color: rgb(63,94,251);
-    transform: 200ms;
-}
-
-.error{
-    color:red;
-    font-size: 12px;
-}
-
-.btnClose{
-    position: relative;
-    bottom: 75px;
-}
-
-#iconClose{
-    position: absolute;
-    color: rgb(63,94,251);
-    font-size: 45px;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-   
-}
-#iconClose:hover{
-    color:coral;
-}
 @media screen and (max-width:900px) {
         section .contenedor{
            flex-direction: column;
@@ -248,7 +142,7 @@ section .contenedor{
             margin-top: -50px;
         }
         .titulo{
-            font-size: 25px;
+            font-size: 35px;
             text-align: center;
             margin-bottom: 30px;
             margin-top: 50px;

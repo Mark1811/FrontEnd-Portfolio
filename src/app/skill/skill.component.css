@@ -1,5 +1,14 @@
+.Skill{
+    display: flex;
+    margin-top: 70px;
+    justify-content: space-around;
+    align-items: center;
+    height:800px ;
+}
+
+
 .titulo{
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     margin-bottom: 30px;
     margin-top: 50px;
@@ -7,23 +16,20 @@
 }
 
 
-
 .caja-de-galeria{
     display: flex;  
     justify-content: space-evenly;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
     height: 320px;
-    
 }
 
 .caja-img{
-    width: 120px;
+    width: 200px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
     border-radius: 6px;  
- 
     transition: all 300ms;
 }
 .caja-de-galeria .dentroimg{
@@ -48,7 +54,6 @@
 }
 .caja-de-galeria .dentroimg:hover{
     opacity: 1;
-
 }
 
 .caja-img > img{
@@ -58,31 +63,20 @@
     display: block;
  
 }
-.Skill{
-    display: flex;
-    justify-content: center;
-    margin-top: 70px;
-    justify-content: space-around;
-
-}
 
 @media screen and (max-width:800px){
       .Skill{
-          display: grid; 
+        display: contents;
+         overflow: hidden;
       }
       
-      .caja-de-galeria{
-        width: 100%;
-        height: 100%;
-      }
+    
 
       .caja-img{
-          width: 50%;
+          width: 200px;
           margin: 60px;
           padding-bottom: 30px;
       }
       
-
-
 
 }
