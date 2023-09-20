@@ -4,6 +4,8 @@
     justify-content: space-around;
     align-items: center;
     height:800px ;
+    overflow: hidden;
+   
 }
 
 
@@ -22,6 +24,7 @@
     flex-wrap: wrap;
     width: 100%;
     height: 320px;
+    
 }
 
 .caja-img{
@@ -64,19 +67,38 @@
  
 }
 
+@media screen and (max-width:1590px){
+    .Skill{
+      display: contents;
+       overflow: hidden;
+    }
+    
+    .caja-img{
+        width: 30%;
+        margin: 40px;
+    }
+    .caja-de-galeria{
+        
+        width: 100%;
+        height: 400px;
+        
+    }
+    
+}
+
 @media screen and (max-width:800px){
       .Skill{
         display: contents;
          overflow: hidden;
       }
       
-    
-
       .caja-img{
           width: 200px;
           margin: 60px;
           padding-bottom: 30px;
+         
       }
-      
 
+
+      
 }
