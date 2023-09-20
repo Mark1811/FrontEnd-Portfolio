@@ -7,6 +7,7 @@ section{
     height: 300px;
     padding-left: 150px;
     padding-right: 1px;
+    padding-right: 10px;
     margin: 0px 40px 30px 40px;
     background: rgb(63,94,251);
     background: radial-gradient(circle, rgb(63, 94, 251) 0%, rgba(252, 70, 106, 0.74) 100%),url(../../assets/imagenes/personas-trabajando.jpg);
@@ -20,7 +21,7 @@ section{
     
 }
 .titulo{
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     margin-bottom: 30px;
     margin-top: 10px;
@@ -28,53 +29,56 @@ section{
     color:coral;
 }
 .listas{
-    
     display: flex;
     list-style: none;
     align-items:center;
-    
 }
 
 .imgexpe{
     align-items: center;
     border-radius: 20px;
     width: 150px; 
-   
 }
 .cajali{
     margin-left: 10px;
     margin-top: 1rem;
     color: aliceblue;
-    
-    
 }
-.cajali p {
-    margin-top: 10px;
+.cajali h1{
+    font-size: 30px;
+    margin-bottom: 10px;
 }
+.cajali h3 {
+    margin-top: 12px;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
 /*-------------Responsive------------------------*/
 @media screen and (max-width:700px){
+
 
     .expe{
         padding: 0;
         display: flex;
         justify-content: center;
         text-align: center;
-        
+       
     }
     
     section .listas{
         flex-direction: column;
         justify-content: center;
         text-align: center;
-       
     }
-    .cajaimg{
-        align-content: center;
-        justify-content: center;
+
+    .imgexpe{
+      width: 100px;
     }
-    .cajaimg img{
-        width: 150px;
-        height: 150px;
+    
+    .cajali h3 {
+        margin-top: 9px;
+        font-size: 17px;
     }
 }
 
@@ -88,6 +92,10 @@ section{
         text-align: center;
         margin-bottom: 30px;
         color:coral;
+    }
+    .cajali p {
+        font-size: 14px;
+        font-weight:100;
     }
 }
 

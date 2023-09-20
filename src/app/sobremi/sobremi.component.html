@@ -1,38 +1,16 @@
-<section  *ngFor="let so of sobremi">
-    <h1 class="titulo">Sobre mi</h1>
-
-           <div class="iconSobremi"><i class="fa-solid fa-pen" id="iconedit" (click)="abrirModal(so.idsobremi)"></i></div>
-      <div class="contenedor"><!--abro contenedor sobre mi-->
-           <div class="contenedor-img-foto">
-             <img [src]=" so.foto">
-           </div>
-              <div class="texto-sobremi" >
-                <p id="text_escrito">{{so.descripcion}}</p>
-              </div> 
-      </div><!--cierro contenedor sobre mi-->
-
-<!----------------------------------Modal de sobre mi-------------------------------->
-  <section class="modal animate__animated animate__fadeInDown animate__faster" *ngIf="habiliModalSobremi"  >
-      
-    <form class="form" [formGroup]="forms"  (ngSubmit)="editCapt($event)">
-      <div class="btnClose"><i id="iconClose" class="fa-solid fa-circle-xmark" (click)="exitAlert()"></i></div>
-      <h2 class="form_title">Portfolio</h2>
-        <label class="labelDescrip">Descripción:</label>
-          <textarea  class="textSobremi" rows="8" formControlName="descripcion"> </textarea>
-             <div *ngIf="Descripcion?.errors && Descripcion?.touched">
-               <p *ngIf="Descripcion?.hasError('required')" class="error">La descripcion es requerido</p>
-             </div>
-      <div class="form_container">  
-          <div class="divbtnimg">
-            <label for="imagen" class="labelimg">imagen:</label>
-            <input type="file" (change)="convertirBs64($event)"
-             class="inputimg"/>seleccion archivo: {{nameimg}}
-          </div>
-            
-      </div>
-         <input type="submit" class="form_submit" value="Guardar" (click)="editCapt($event)">
-    </form>   
-  </section>
+<section>
+  <h1 class="titulo">Sobre mi</h1>
+  <div class="linea">
+    <h1 class="lineaAdentro"></h1>
+  </div>
+  <div class="contenedor">
+    <div class="contenedor-img-foto" >
+      <img src="../../assets/imagenes/yop.png">
+    </div>
+    <div class="texto-sobremi">
+      <p id="text_escrito">
+        {{text}}
+      </p>
+    </div>
+  </div>
 </section>
-
-
